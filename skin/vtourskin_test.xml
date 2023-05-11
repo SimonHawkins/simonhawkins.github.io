@@ -1,0 +1,15 @@
+<krpano>
+	<!-- krpano 1.17.4 - Default Virtual Tour Skin -->
+
+
+ <style name="skin_hotspot_mum" url="mum_standing.png" smoothing="false" edge="top" scale=".4"  distorted="true" oy="0"  />
+ 
+ <style name="skin_hotspot_light" url="button_hotspot.png" smoothing="true" edge="top" scale=".4"  distorted="true" oy="0"  />
+ <style name="skin_hotspot_light_visited" url="button_hotspot.png" smoothing="true" edge="top" scale=".4"  distorted="true" oy="0"  />
+ 
+ 
+ <style name="text_chest_xray" url="name_chestxray.png" smoothing="false" edge="top" scale=".5"  distorted="true"   />
+ 
+  <style name="hotspot_text" smoothing="false" edge="top" scale=".5"  distorted="true"   />
+ 
+</krpano>

@@ -1,0 +1,174 @@
+<krpano version="1.0.8.15" title="Virtual Tour" onstart="startup();">
+
+	<include url="skin/vtourskin.xml" />
+
+	<!-- set skin settings: bingmaps? gyro? -->
+	<skin_settings bingmaps="false" bingmaps_key="" bingmaps_zoombuttons="false"
+	               gyro="true"
+	               thumbsopened="false"
+	               tooltips_thumbs="false" tooltips_hotspots="false" tooltips_mapspots="false"
+	               controlbar_offset="20"
+	               />
+
+	<!-- set optional skin logo url -->
+	<layer name="skin_logo" url="" scale="0.25" opened_onclick="openurl('...',_blank);" />
+
+
+	<action name="startup">
+		if(startscene === null, copy(startscene,scene[0].name));
+		loadscene(get(startscene), null, MERGE);
+	</action>
+
+	
+	<scene name="scene_view1" title="view1" onstart="" thumburl="panos/view1.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/view1.tiles/preview.jpg" />
+
+		<image type="CUBE" multires="true" tilesize="512" progressive="false">
+			<level tiledimagewidth="2546" tiledimageheight="2546">
+				<cube url="panos/view1.tiles/l3_%s_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="1273" tiledimageheight="1273">
+				<cube url="panos/view1.tiles/l2_%s_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="637" tiledimageheight="637">
+				<cube url="panos/view1.tiles/l1_%s_%v_%h.jpg" />
+			</level>
+			<mobile>
+				<cube url="panos/view1.tiles/mobile_%s.jpg" />
+			</mobile>
+		</image>
+
+		<!-- place your scene hotspots here -->
+
+	</scene>
+
+	<scene name="scene_view2" title="view2" onstart="" thumburl="panos/view2.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/view2.tiles/preview.jpg" />
+
+		<image type="CUBE" multires="true" tilesize="512" progressive="false">
+			<level tiledimagewidth="2546" tiledimageheight="2546">
+				<cube url="panos/view2.tiles/l3_%s_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="1273" tiledimageheight="1273">
+				<cube url="panos/view2.tiles/l2_%s_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="637" tiledimageheight="637">
+				<cube url="panos/view2.tiles/l1_%s_%v_%h.jpg" />
+			</level>
+			<mobile>
+				<cube url="panos/view2.tiles/mobile_%s.jpg" />
+			</mobile>
+		</image>
+
+		<!-- place your scene hotspots here -->
+
+	</scene>
+
+	<scene name="scene_view6" title="view6" onstart="" thumburl="panos/view6.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/view6.tiles/preview.jpg" />
+
+		<image type="CUBE" multires="true" tilesize="512" progressive="false">
+			<level tiledimagewidth="2546" tiledimageheight="2546">
+				<cube url="panos/view6.tiles/l3_%s_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="1273" tiledimageheight="1273">
+				<cube url="panos/view6.tiles/l2_%s_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="637" tiledimageheight="637">
+				<cube url="panos/view6.tiles/l1_%s_%v_%h.jpg" />
+			</level>
+			<mobile>
+				<cube url="panos/view6.tiles/mobile_%s.jpg" />
+			</mobile>
+		</image>
+
+		<!-- place your scene hotspots here -->
+
+	</scene>
+
+	<scene name="scene_view8" title="view8" onstart="" thumburl="panos/view8.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/view8.tiles/preview.jpg" />
+
+		<image type="CUBE" multires="true" tilesize="512" progressive="false">
+			<level tiledimagewidth="2546" tiledimageheight="2546">
+				<cube url="panos/view8.tiles/l3_%s_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="1273" tiledimageheight="1273">
+				<cube url="panos/view8.tiles/l2_%s_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="637" tiledimageheight="637">
+				<cube url="panos/view8.tiles/l1_%s_%v_%h.jpg" />
+			</level>
+			<mobile>
+				<cube url="panos/view8.tiles/mobile_%s.jpg" />
+			</mobile>
+		</image>
+
+		<!-- place your scene hotspots here -->
+
+	</scene>
+
+	<scene name="scene_view9" title="view9" onstart="" thumburl="panos/view9.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview=" />
+
+		<preview url="panos/view9.tiles/preview.jpg" />
+
+		<image type="CUBE" multires="true" tilesize="512" progressive="false">
+			<level tiledimagewidth="2546" tiledimageheight="2546">
+				<cube url="panos/view9.tiles/l3_%s_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="1273" tiledimageheight="1273">
+				<cube url="panos/view9.tiles/l2_%s_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="637" tiledimageheight="637">
+				<cube url="panos/view9.tiles/l1_%s_%v_%h.jpg" />
+			</level>
+			<mobile>
+				<cube url="panos/view9.tiles/mobile_%s.jpg" />
+			</mobile>
+		</image>
+
+		<!-- place your scene hotspots here -->
+
+	</scene>
+
+	<scene name="scene_waitingroom" title="waitingroom" onstart="" thumburl="panos/waitingroom.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/waitingroom.tiles/preview.jpg" />
+
+		<image type="CUBE" multires="true" tilesize="512" progressive="false">
+			<level tiledimagewidth="2546" tiledimageheight="2546">
+				<cube url="panos/waitingroom.tiles/l3_%s_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="1273" tiledimageheight="1273">
+				<cube url="panos/waitingroom.tiles/l2_%s_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="637" tiledimageheight="637">
+				<cube url="panos/waitingroom.tiles/l1_%s_%v_%h.jpg" />
+			</level>
+			<mobile>
+				<cube url="panos/waitingroom.tiles/mobile_%s.jpg" />
+			</mobile>
+		</image>
+
+		<!-- place your scene hotspots here -->
+
+	</scene>
+
+
+</krpano>

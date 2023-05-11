@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+    xmlns:gap = "http://phonegap.com/ns/1.0"
+    id        = "SC47ESQL95.com.seriousgamesinternational.miu"
+    version   = "1.0.2">
+
+<name>Radiology</name>
+
+<description>Radiology for Kids</description>
+
+<author href="http://www.seriousgamesinternational.com" email="simon@seriousgamesinternational.com">
+Serious Games International
+</author>
+<preference name="orientation" value="landscape" />
+<feature name="http://api.phonegap.com/1.0/file"/>
+<gap:splash src="splash.png" />
+<gap:splash src="splash/ios/Default-Landscape.png" gap:platform="ios" width="1024" height="748" />
+<icon src="icon.png" height="68" width="68" default="true" />
+</widget>

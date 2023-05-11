@@ -1,0 +1,1275 @@
+/* CSS Document */
+
+html, body {
+    /* background-color: #e1f2ea; */
+    background-color: white;
+    padding: 0px;
+    margin: 0px;
+    -webkit-tap-highlight-color:transparent;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+}
+
+
+div {
+    position: absolute;
+}
+
+#holder {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+#hider {
+    background: #057ac1 url("../img/rotate-device.png");
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    left: 0px;
+    right: 0px;
+}
+
+#bookmarker {
+    background: #057ac1 url("../img/addtohome.png");
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 80%;
+    left: 0px;
+    right: 0px;
+}
+
+
+.highlightText {
+    color: #1d88d4;
+}
+
+@font-face {
+    font-family: 'bpreplayregular';
+    src: url('../fonts/webfontkit/bpreplay-webfont.eot');
+    src: url('../fonts/webfontkit/bpreplay-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/webfontkit/bpreplay-webfont.woff') format('woff'),
+    url('../fonts/webfontkit/bpreplay-webfont.ttf') format('truetype'),
+    url('../fonts/webfontkit/bpreplay-webfont.svg#bpreplayregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'bpreplaybold';
+    src: url('../fonts/webfontkit/bpreplaybold-webfont.eot');
+    src: url('../fonts/webfontkit/bpreplaybold-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/webfontkit/bpreplaybold-webfont.woff') format('woff'),
+    url('../fonts/webfontkit/bpreplaybold-webfont.ttf') format('truetype'),
+    url('../fonts/webfontkit/bpreplaybold-webfont.svg#bpreplaybold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'bpreplaybold_italic';
+    src: url('../fonts/webfontkit/bpreplaybolditalics-webfont.eot');
+    src: url('../fonts/webfontkit/bpreplaybolditalics-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/webfontkit/bpreplaybolditalics-webfont.woff') format('woff'),
+    url('../fonts/webfontkit/bpreplaybolditalics-webfont.ttf') format('truetype'),
+    url('../fonts/webfontkit/bpreplaybolditalics-webfont.svg#bpreplaybold_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'bpreplayitalic';
+    src: url('../fonts/webfontkit/bpreplayitalics-webfont.eot');
+    src: url('../fonts/webfontkit/bpreplayitalics-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/webfontkit/bpreplayitalics-webfont.woff') format('woff'),
+    url('../fonts/webfontkit/bpreplayitalics-webfont.ttf') format('truetype'),
+    url('../fonts/webfontkit/bpreplayitalics-webfont.svg#bpreplayitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.tempButton {
+    height: 45px;
+    width: 5%;
+    right: 5%;
+    background-color: blue;
+    border: solid 1px gray;
+    cursor: pointer;
+    /*display:none;*/
+    text-align: center;
+    font-size: 2em;
+    padding-top: 10px;
+    background-color: white;
+    color: gray;
+    opacity: 0.4;
+    border-radius: 25px;
+}
+
+.tempButton:hover {
+    opacity: 1;
+
+}
+
+.tempHighlight {
+
+    opacity: 1;
+    border: solid 1px orange;
+}
+
+#button1 {
+    bottom: 50px;
+}
+
+#button2 {
+    bottom: 120px;
+}
+
+#button3 {
+    bottom: 190px;
+}
+
+#button4 {
+    bottom: 260px;
+}
+
+#button5 {
+    bottom: 330px;
+}
+
+#button6 {
+    bottom: 400px;
+}
+
+#button7 {
+    top: 40px;
+}
+
+#overlay {
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+#viewer1 {
+    /*  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);	
+*/
+
+}
+
+#welcomeFormHolder {
+    left: 50%;
+    top: 20%;
+    display: none;
+}
+
+#welcomeForm {
+    position: relative;
+    left: -50%;
+    border: solid gray 3px;
+    border-radius: 5px;
+    padding: 25px;
+    color: gray;
+    background-color: #efecec;
+}
+
+label {
+    display: block;
+    float: left;
+    width: 150px;
+
+}
+
+#popupBox {
+    position: absolute;
+    height: 40%;
+    width: 40%;
+    left: 30%;
+    top: 30%;
+    border: solid 5px #5579DC;
+    background-color: white;
+    border-radius: 25px;
+    box-shadow: 0px 0px 25px #000;
+}
+
+#canvas, #mumcanvas {
+    position: absolute;
+    left: -10px;
+    bottom: 5%;
+    border: solid 0px red;
+    display: block;
+    margin: 0 auto;
+
+}
+
+#footer {
+    height: 21%;
+    width: 100%;
+    background-image: url("../img/bottom_panel_text.png");
+    background-repeat: repeat-x;
+
+    background-size: 100% 100%;
+    background-position: center center;
+    position: absolute;
+    bottom: -300px;
+    /*bottom:0px;*/
+    left: 0px;
+    text-align: center;
+}
+
+#footer_text {
+
+    position: relative;
+    border: solid 0px gray;
+    height: 100%;
+    width: 65%;
+
+    margin-left: 21%;
+    font-family: bpreplaybold;
+    font-size: 1.8em;
+    /*color:#4d4d4d;*/
+    color: #8c9fa8;
+
+    overflow: hidden;
+
+}
+
+.inner {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: table;
+}
+
+.inner p {
+    display: table-cell;
+    vertical-align: middle;
+    margin-top: 0px;
+}
+
+#footer_button {
+
+    background-image: url("../img/button_next.png");
+    height: 53.29%;
+    width: 8.69%;
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center right;
+    position: absolute;
+    right: 29px;
+    top: 25%;
+    cursor: pointer;
+    display: none;
+}
+
+#footer_home_button {
+
+    background-image: url("../img/button_home.png");
+    height: 53.29%;
+    width: 8.69%;
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center right;
+    position: absolute;
+    right: 29px;
+    top: 25%;
+    cursor: pointer;
+    display: none;
+}
+
+#characterbox, #mumbox {
+
+    height: 100%;
+    position: absolute;
+    width: 30%;
+    left: -700px;
+    pointer-events: none;
+}
+
+#characterbox {
+    bottom: -2%;
+}
+
+#characterpedestal {
+    background-image: url("../img/floating_platform.png");
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    position: absolute;
+    height: 17.19%;
+    width: 54.65%;
+    bottom: 3%;
+    left: 10%;
+
+}
+
+.Titlebar {
+
+    background-image: url("../img/banner_top.png");
+
+    background-repeat: repeat-y;
+    background-size: contain;
+    background-position: center center;
+    position: absolute;
+    width: 79.98%;
+
+    left: 10.01%;
+}
+
+#roomTitlebar, #splashTitlebar, #characterTitlebar, #sceneChoiceTitlebar, #menuChoiceTitlebar {
+
+    background-image: url("../img/banner_top.png");
+
+    background-repeat: repeat-y;
+    background-size: contain;
+    background-position: center center;
+    position: absolute;
+    width: 79.98%;
+    top: 15%;
+    left: 10.01%;
+
+}
+
+#roomTitlebar {
+    display: none;
+    height: 6%;
+}
+
+#splashTitlebar {
+    top: 10%;
+    height: 7%;
+
+}
+
+#splashTitleText {
+    background-image: url("../img/title_welcome.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    margin-top: .5%;
+
+}
+
+#splashInstructionBar {
+    bottom: 10%;
+    height: 7%;
+    background-repeat: repeat-y;
+    background-size: contain;
+    background-position: center center;
+    position: absolute;
+    width: 79.98%;
+    background-image: url("../img/banner_top.png");
+    left: 10.01%;
+}
+
+#splashInstructionText {
+    background-image: url("../img/name_lookaround.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    margin-top: .5%;
+
+}
+
+#splashCopyright {
+    bottom: 3%;
+    height: 3.2%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    position: absolute;
+    width: 79.98%;
+    background-image: url("../img/copyright.png");
+    left: 10.01%;
+    border: solid 0px red;
+}
+
+#roomTopbar {
+    top: 0%;
+    height: 6.6%;
+}
+
+#roomTitle {
+    /*top:6.5%;*/
+    height: 69px;
+    top: 8%;
+    display: none;
+
+    left: 10.01%;
+
+}
+
+.Titletext {
+    background-image: url("../img/name_ultrasound_room.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    position: absolute;
+    width: 100%;
+}
+
+#roomTitleText {
+    height: 70%;
+    top: 15%;
+}
+
+#roomTopText {
+    height: 70%;
+    top: 15%;
+}
+
+.Titletext {
+    background-image: url("../img/name_ultrasound_room.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    position: absolute;
+    width: 100%;
+}
+
+#roomBadgeText {
+    background-image: url("../img/title_wonabadge.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    position: absolute;
+    width: 100%;
+    height: 61px;
+
+}
+
+#characterBlock, #splashBlock, #menuChoiceBlock, #sceneChoiceBlock {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: none;
+}
+
+#characterTitlebar, #sceneChoiceTitlebar, #menuChoiceTitlebar {
+    top: 10%;
+    height: 6.6%;
+}
+
+#sceneChoiceTitlebar {
+    display: none;
+}
+
+#characterTitleText {
+    background-image: url("../img/title_selectcharacter.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    margin-top: .5%;
+
+}
+
+#characterHolder {
+    height: 72%;
+    width: 70%;
+    border: solid 0px blue;
+    left: 15.04%;
+    top: 20.00%;
+}
+
+.choseCharacter {
+    width: 25%;
+    height: 100%;
+    float: left;
+
+    position: relative;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+}
+
+#chooseTeenGirl {
+    background-image: url("../img/select_teengirl.png");
+}
+
+#chooseTeenBoy {
+    background-image: url("../img/select_teenboy.png");
+}
+
+#chooseGirl {
+    background-image: url("../img/select_girl.png");
+}
+
+#chooseBoy {
+    background-image: url("../img/select_boy.png");
+}
+
+#sceneChoiceTitleText, #menuChoiceTitleText {
+    background-image: url("../img/title_choosedepartment.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    margin-top: .5%;
+
+}
+
+#sceneChoiceHolder {
+    height: 56.64%;
+    width: 40%;
+    border: solid 0px blue;
+    left: 30%;
+    top: 21.68%;
+    display: none;
+}
+
+#menuChoiceHolder {
+    height: 56.64%;
+    width: 40%;
+    left: 30%;
+    top: 21.68%;
+    display: block;
+    text-align: center;
+}
+
+#menuChoiceHomeHolder {
+    height: 28%;
+    width: 60%;
+    left: 20%;
+    top: 50%;
+    display: block;
+    text-align: center;
+}
+
+.menuChoice {
+    width: 33%;
+    height: 40%;
+    float: left;
+    border: solid 0px red;
+    position: relative;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    background-image: url("../img/box_chooser.png");
+}
+
+.sceneChoice {
+    width: 33%;
+    height: 40%;
+    float: left;
+    border: solid 0px red;
+    position: relative;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    background-image: url("../img/box_chooser.png");
+}
+
+.menuHomeChoice {
+    width: 33%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    background-image: url("../img/box_chooser.png");
+
+}
+
+#chooseXRay {
+    background-image: url("../img/icon_xray.png");
+}
+
+#chooseUltrasound {
+    background-image: url("../img/icon_ultrasound.png");
+}
+
+#chooseMRI {
+    background-image: url("../img/icon_mri.png");
+}
+
+#chooseFluoroscopy {
+    background-image: url("../img/icon_fluoroscopy.png");
+}
+
+#chooseCT {
+    background-image: url("../img/icon_ct.png");
+}
+
+#chooseNuclear {
+    background-image: url("../img/icon_nuclear_medicine.png");
+}
+
+#chooseHome {
+    background-image: url("../img/icon_home.png");
+}
+
+#chooseHome a {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.sceneChoice div, .menuChoice div, .menuHomeChoice div {
+    height: 100%;
+    width: 65%;
+    left: 17.5%;
+    top: 0%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    border: solid 0px red;
+}
+
+#navNumbers {
+    border: solid 0px red;
+
+    position: absolute;
+    right: 10px;
+    top: 10px;
+
+}
+
+#navNumbers img {
+
+    cursor: pointer;
+}
+
+#nav1 {
+    background-image: url("../img/numbers_1.png");
+
+}
+
+#nav2 {
+    background-image: url("../img/numbers_2.png");
+}
+
+#nav3 {
+    background-image: url("../img/numbers_3.png");
+}
+
+#nav4 {
+    background-image: url("../img/numbers_4.png");
+}
+
+#nav5 {
+    background-image: url("../img/numbers_5.png");
+}
+
+#kerrybox {
+
+    width: 276px;
+    height: 306px;
+
+    background-image: url("../img/box_video.png");
+    background-size: contain;
+    position: absolute;
+    right: 2%;
+    /*right:-276px;*/
+    top: 10%;
+    display: none;
+
+}
+
+/*
+#kerryclose
+{
+	height:78px;
+	width:78px;
+		background-image: url("../img/button_close.png");
+			position:absolute;
+	right:-5%;
+	top:-5%;
+}
+*/
+
+#kerryvideoHolder, #kerryPoster {
+    position: absolute;
+    left: 17.39%;
+    top: 13.07%;
+    height: 58.82%;
+    width: 65.22%;
+
+}
+
+#kerryPoster {
+    background-image: url("../img/kerryposter.png");
+    background-size: contain;
+    display: none;
+}
+
+#kerryText {
+
+    height: 13.40%;
+    width: 30.43%;
+    background-image: url("../img/text_kerry.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    bottom: 13.07%;
+    left: 36.23%;
+}
+
+#kerryControl {
+    height: 6.86%;
+    width: 10.51%;
+
+    position: absolute;
+    top: 16.34%;
+    right: 21.74%;
+    cursor: pointer;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.kerryPlay {
+    background-image: url("../img/button_video_play.png");
+}
+
+.kerryPause {
+    background-image: url("../img/button_video_pause.png");
+}
+
+#pictureBox, #audioBox, #linkBox, #videoBox {
+    /*width:50%;
+    width:571px;
+    height:76.04%;*/
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 594px;
+    height: 514px;
+
+    top: 10%;
+
+    background-image: url("../img/background_justimage.png");
+    background-repeat: no-repeat;
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    display: none;
+}
+
+#link {
+
+    margin-top: 10%;
+    padding: 10%;
+    width: 80%;
+    font-size: 2em;
+    word-wrap: break-word;
+}
+
+#link a {
+    color: #1d88d4;
+
+}
+
+#videoBox {
+
+    background-image: url("../img/box_bigvideo.png");
+
+}
+
+#soundwaveBox {
+    border: solid 0px red;
+    /*width:50%;
+    width:571px;
+    height:76.04%;*/
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 594px;
+    height: 514px;
+
+    top: 10%;
+
+    background-image: url("../img/background_justimage.png");
+    background-repeat: no-repeat;
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    display: none;
+}
+
+#soundwavePicture {
+    background-image: url("../img/soundwave2.gif");
+    background-repeat: repeat x;
+    height: 32.30%;
+    width: 80.47%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 20%;
+    border: solid 0px red;
+    background-size: contain;
+
+}
+
+#audio {
+
+    width: 80.84%;
+    height: 61.64%;
+
+}
+
+#videoHolder {
+    position: absolute;
+    height: 68.12%;
+    width: 84.18%;
+    left: 8%;
+    top: 12.08%;
+
+}
+
+#pictureLight, #audioLight, #videoLight {
+    width: 8%;
+    height: 8%;
+    background-image: url("../img/button_hotspot.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center top;
+    left: 30%;
+    top: -1%;
+}
+
+#linkTitle, #pictureTitle, #audioTitle, #videoTitle, #soundwaveBoxTitle {
+    /*background-image: url("../img/name_chestxray_light.png");	*/
+    background-repeat: no-repeat;
+
+    background-position: center top;
+    height: 12%;
+    width: 100%;
+    border: solid 0px red;
+}
+
+#pictureClose, #audioClose, #videoClose {
+    width: 12%;
+    height: 12%;
+    background-image: url("../img/button_close.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    right: 2%;
+    top: -1%;
+    cursor: pointer;
+}
+
+#pictureNext, #videoNext, #linkNext {
+
+    width: 15%;
+    height: 15%;
+    background-image: url("../img/button_next.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    left: 42%;
+    bottom: -2%;
+    cursor: pointer;
+}
+
+#picture {
+
+    width: 80%;
+    height: 80%;
+    left: 10%;
+    top: 10%;
+    border: solid 0px red;
+    background-image: url("../img/scene_younggirl_chest.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+#pictureText, #audioText, #videoText {
+
+    width: 80.84%;
+    height: 20%;
+    left: 9.58%;
+    bottom: 11.5%;
+    text-align: center;
+
+    color: #4d4d4d;
+}
+
+#audioText {
+    top: 11.5%;
+}
+
+#audioButton {
+
+    width: 20%;
+    height: 20%;
+    left: 40%;
+    top: 40%;
+    cursor: pointer;
+    background-image: url("../img/button_audioplay.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+
+}
+
+#pictureText h1, #audioText h1, #videoText h1 {
+    font-family: bpreplaybold;
+    font-size: 1.8em;
+    margin-bottom: 0px;
+
+}
+
+#pictureText p, #audioText p {
+    font-family: bpreplayregular;
+    font-size: 1.7em;
+    margin-top: 5px;
+}
+
+#badge {
+
+    position: absolute;
+
+    height: 368px;
+    width: 322px;
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center top;
+    display: none;
+    background-image: url("../img/box_badge.png");
+    border: solid 0px blue;
+
+}
+
+#badgeflash {
+    position: absolute;
+    width: 100%;
+    height: 77.72%;
+    top: 8.15%;
+    left: 0%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: block;
+    background-image: url("../img/starburst.png");
+    border: solid 0px red;
+    background-position: center center;
+}
+
+#badgeitem {
+    position: absolute;
+    border: solid 0px blue;
+    width: 80.12%;
+    height: 52.99%;
+    top: 21.74%;
+    left: 9.94%;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    background-position: center 40%;
+    display: block;
+    background-image: url("../img/badge_silver_fluoroscopy.png");
+    border: solid 0px green;
+}
+
+#badgetitle {
+    position: absolute;
+    border: solid 0px blue;
+    width: 80%;
+    height: 8%;
+    top: 8%;
+    left: 10%;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    background-position: center 30%;
+    display: block;
+    background-image: url("../img/greatwork.png");
+}
+
+#lightsOff {
+
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: black;
+    /*	background: linear-gradient(to bottom, rgba(0, 0, 0, 1),  rgba(0, 0, 0, 0));*/
+    pointer-events: none;
+    opacity: 0;
+}
+
+/*
+@media (max-width: 800px) {
+  body {
+ font-size:8px  }
+  #pictureText h1{
+font-size: 1.3em;	
+}
+
+*/
+
+#welcomeblock {
+
+    height: 50%;
+    width: 50%;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    background-position: center center;
+    display: block;
+    background-image: url("../img/welcomeblock.png");
+    cursor: pointer;
+
+}
+
+#siemensblock {
+
+    height: 50%;
+    width: 50%;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    display: none;
+    background-image: url("../img/siemens_education_portal.png");
+    cursor: pointer;
+}
+
+#siemensappblock {
+
+    height: 50%;
+    width: 50%;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    display: none;
+    background-image: url("../img/siemens_download_mri_app.png");
+    cursor: pointer;
+}
+
+#intro_footer_button {
+
+    background-image: url("../img/button_next.png");
+    height: 11%;
+    width: 10%;
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center right;
+    position: absolute;
+    right: 2%;
+    bottom: 5%;
+    cursor: pointer;
+    display: none;
+}
+
+#hintbox {
+    position: absolute;
+    left: 25%;
+    top: 40%;
+    width: 50%;
+    height: 10%;
+    display: none;
+    pointer-events: none;
+}
+
+#hintleft {
+    width: 10%;
+    height: 100%;
+    background-image: url("../img/icon_hintleft.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center left;
+    left: 0%;
+
+}
+
+#hintright {
+    width: 10%;
+    height: 100%;
+    background-image: url("../img/icon_hintright.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center right;
+    right: 0%;
+
+}
+
+#hinttext {
+
+    font-family: bpreplaybold;
+    left: 15%;
+    width: 70%;
+    height: 100%;
+    text-align: center;
+    padding-top: 2%;
+    color: #1d88d4;
+    font-size: 1.8em;
+}
+
+#loading {
+    postion: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background: #ffffff url("../img/loading.gif");
+    background-position: center center;
+    background-repeat: no-repeat;
+
+}
+
+@media (max-width: 1400px) {
+    body {
+        font-size: 11px
+    }
+
+    #pictureText h1 {
+        font-size: 2em;
+    }
+
+}
+
+@media (max-width: 1000px) {
+    body {
+        font-size: 10px
+    }
+
+    /*#pictureBox{
+       width:350px;
+       height:76.04%;
+   }*/
+    #pictureText h1 {
+        font-size: 1.8em;
+    }
+
+    #pictureText p {
+        font-size: 1.5em;
+    }
+
+    #kerrybox {
+
+        width: 150px;
+        height: 166px;
+    }
+
+    #pictureBox, #audioBox, #videoBox, #linkBox, #soundwaveBox {
+        width: 250px;
+        height: 216px;
+    }
+
+    #pictureTitle, #audioTitle, #videoTitle, #linkTitle, #soundwaveBoxTitle {
+        background-size: contain;
+
+    }
+
+    #videoHolder {
+        height: 112px;
+        width: 200px;
+    }
+
+    #footer_text {
+        font-size: 1.4em;
+    }
+
+    #badge {
+
+        height: 158px;
+        width: 180px;
+        padding: 0px;
+        margin: 0px;
+
+    }
+
+    #badgeflash {
+
+        width: 100%;
+        height: 88.82%;
+    }
+
+    #roomBadgeText {
+        height: 31px;
+    }
+
+    #roomTitlebar {
+        height: 10%;
+        top: 13%;
+    }
+
+}
+
+@media screen and (device-aspect-ratio: 3/4) {
+    #ar {
+        color: red;
+    }
+
+}
+
+@media screen and (device-aspect-ratio: 4/3) {
+    #ar {
+        color: yellow;
+    }
+
+    @media screen and (device-aspect-ratio: 2/3) {
+        #ar {
+            color: green;
+        }
+
+        @media screen and (device-aspect-ratio: 9/16) {
+            #ar {
+                color: blue;
+            }
+
+            @media screen and (device-aspect-ratio: 10/16) {
+                #ar {
+                    color: orange;
+                }
+
+                @media screen and (device-aspect-ratio: 3/5) {
+                    #ar {
+                        color: black;
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+
+

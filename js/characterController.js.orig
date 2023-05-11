@@ -1,0 +1,482 @@
+// JavaScript Document
+var characterController = {
+
+	canvas : null,
+	stage : null,
+	characters : null,
+	characterArray : ["boy", "boygown", "girl", "girlgown", "teenboy", "teengown", "teengirl", "teengown", "mum", "mumgown"],
+	myCharacterName : "boy",
+	myCharacterGender : "boy",
+	canSpeak : true,
+	playBoiler : true,
+	isPlaying : false,
+	myTimeout : setTimeout,
+
+	init : function() {
+
+		characterController.canvas = document.getElementById("canvas");
+
+		characterController.resize();
+
+		var loader = new createjs.LoadQueue(false);
+		loader.addEventListener("fileload", characterController.handleFileLoad);
+		loader.addEventListener("complete", characterController.handleComplete);
+		loader.loadManifest(lib.properties.manifest);
+		context = characterController.canvas.getContext('2d');
+
+		window.addEventListener('load', characterController.resize, false);
+		window.addEventListener('resize', characterController.resize, false);
+
+	},
+
+	resize : function() {
+		var height = window.innerHeight;
+		var ratio = canvas.width / canvas.height;
+
+		//SJH - this sets the height of the characters on screen
+		height = (height / 100) * 85;
+		var width = height * ratio;
+		characterController.canvas.style.width = width + 'px';
+		characterController.canvas.style.height = height + 'px';
+
+	},
+
+	handleFileLoad : function(evt) {
+
+		if (evt.item.type == "image") {
+			images[evt.item.id] = evt.result;
+		}
+
+	},
+
+	handleComplete : function() {
+
+		$('#loading').remove();
+		introController.splash();
+		//alert("characters have loaded");
+
+		characterController.characters = new lib.radiology_characters();
+		characterController.stage = new createjs.Stage(characterController.canvas);
+
+		characterController.stage.addChild(characterController.characters);
+		characterController.stage.update();
+
+		createjs.Ticker.setFPS(lib.properties.fps);
+		createjs.Ticker.addEventListener("tick", characterController.stage);
+
+		//	characterController.setCharacter(characterController.myCharacterName);
+		mumController.init();
+	},
+
+	setCharacter : function(characterName) {
+
+		characterController.characters.children.forEach(function(item) {
+
+			item.visible = false;
+		});
+
+		characterController.currentCharacter = characterController.characters[characterName];
+		characterController.currentCharacter.visible = true;
+		characterController.myCharacterName = characterName;
+
+		//characterController.stage["girl"].visible = true;
+
+	},
+
+	getNodLoc : function() {
+
+		var myNodLoc;
+
+		switch (characterController.myCharacterName) {
+
+		case "girl":
+			myNodLoc = characterController.currentCharacter.head
+			break;
+
+		case "girlgown":
+			myNodLoc = characterController.currentCharacter.head
+			break;
+
+		case "teenboygown":
+			myNodLoc = characterController.currentCharacter.head
+			break;
+
+		case "teenboy":
+			myNodLoc = characterController.currentCharacter.head
+			break;
+
+		case "teengirlgown":
+			myNodLoc = characterController.currentCharacter.torso
+			break;
+
+		case "teengirl":
+			myNodLoc = characterController.currentCharacter.torso
+			break;
+
+		default:
+			myNodLoc = characterController.currentCharacter
+			break;
+
+		}
+
+		return myNodLoc;
+
+	},
+
+	getHeadLoc : function() {
+
+		var myHeadLoc;
+
+		switch (characterController.myCharacterName) {
+
+		case "teengirlgown":
+			myHeadLoc = characterController.currentCharacter.torso.head;
+			break;
+
+		case "teengirl":
+			myHeadLoc = characterController.currentCharacter.torso.head;
+			break;
+
+		default:
+			myHeadLoc = characterController.currentCharacter.head;
+			break;
+
+		}
+
+		return myHeadLoc;
+
+	},
+
+	actions : function(action) {
+
+		console.log(action);
+
+		switch (action) {
+
+		case "slow_nod":
+			characterController.getNodLoc().gotoAndPlay("slow_nod");
+			break;
+
+		case "quick_nod":
+			characterController.getNodLoc().gotoAndPlay("quick_nod");
+			break;
+
+		case "point_down":
+			characterController.currentCharacter.backarm.gotoAndPlay("point_down");
+			break;
+
+		case "point_up":
+			characterController.currentCharacter.backarm.gotoAndPlay("point_up");
+			break;
+
+		case "point_backdown":
+			characterController.currentCharacter.backarm.gotoAndPlay("point_backdown");
+			break;
+
+		case "gesture_large":
+			characterController.currentCharacter.backarm.gotoAndPlay("gesture_large");
+			break;
+
+		case "gesture_small":
+			characterController.currentCharacter.backarm.gotoAndPlay("gesture_small");
+			break;
+
+		case "eybrows":
+			characterController.getHeadLoc().eyebrows.gotoAndPlay("raised");
+			break;
+
+		case "blink":
+			characterController.getHeadLoc().eyes.gotoAndPlay(2);
+			break;
+
+		case "smile":
+			characterController.getHeadLoc().mouth.gotoAndStop("smile");
+			break;
+
+		case "th":
+			characterController.getHeadLoc().mouth.gotoAndStop("th");
+			break;
+
+		case "oh":
+			characterController.getHeadLoc().mouth.gotoAndStop("oh");
+			break;
+
+		case "ee":
+			characterController.getHeadLoc().mouth.gotoAndStop("ee");
+			break;
+
+		case "ah":
+			characterController.getHeadLoc().mouth.gotoAndStop("ah");
+			break;
+
+		}
+
+	},
+
+	boilerAnimations : function() {
+
+		if (characterController.isPlaying == false) {
+			console.log("this is boiling");
+			characterController.isPlaying == true;
+
+			blinker();
+			eyebrows();
+			nod();
+
+			function mouth() {
+				if (characterController.playBoiler) {
+
+					var mouthArray = ["th", "oh", "ee", "ah"];
+					thismouth = mouthArray[Math.floor(Math.random() * mouthArray.length) + 0];
+					characterController.actions(thismouth);
+
+					setTimeout(function() {
+						// Do something after 5 seconds
+
+						characterController.actions("smile");
+
+						setTimeout(function() {
+							// Do something after 5 seconds
+							mouth();
+
+						}, Math.floor(Math.random() * 18000) + 6000);
+
+					}, 2000);
+
+				}
+			}
+
+		}
+
+	},
+
+	highlightTheText : function(clipLength) {
+		totalcount = $("span", '#ftext').length;
+		wordDuration = Math.round(clipLength / (totalcount+1));
+		countup = 0;
+		doHighlight();
+		function doHighlight() {
+			if (countup < totalcount) {
+
+				$("span", '#ftext').eq(countup).addClass("highlightText");
+				setTimeout(function() {
+					countup++;
+					doHighlight();
+				}, wordDuration);
+
+			} else {
+				$(document).trigger("textFinished");
+				$(document).trigger("textFinishedAgain");
+			}
+
+		}
+
+	},
+
+
+	talkIt : function() {
+
+		if (characterController.canSpeak) {
+			var mouthArray = ["th", "oh", "ee", "ah"];
+			thismouth = mouthArray[Math.floor(Math.random() * mouthArray.length) + 0];
+			characterController.actions(thismouth);
+			setTimeout(function() {
+				characterController.talkIt();
+			}, 150);
+
+		} else {
+			characterController.actions("smile");
+		}
+
+	},
+
+
+
+
+
+
+
+
+
+
+
+
+	speak : function(thisType, clipLength) {
+
+		countup = 0;
+		totalcount = $("span", '#ftext').length;
+		characterController.canSpeak = true;
+
+		if (clipLength) {
+			wordDuration = Math.round(clipLength / totalcount);
+
+		} else {
+			wordDuration = 300;
+		}
+
+		doHighlight();
+		characterController.talkIt();
+
+		function doHighlight() {
+
+			if (countup < totalcount) {
+
+				console.log("still looping text");
+
+				//console.log($("span", '#ftext').eq(countup));
+
+				$("span", '#ftext').eq(countup).addClass("highlightText");
+
+				setTimeout(function() {
+
+					countup++;
+					doHighlight();
+
+				}, wordDuration);
+
+			} else {
+
+				$(document).trigger("textFinished");
+				$(document).trigger("textFinishedAgain");
+			}
+
+		}
+
+	},
+
+
+	talking : function(thisType) {
+
+		characterController.canSpeak = true;
+
+		var currentCount = 0;
+
+		console.log("is set to talking");
+
+		// characterController.playBoiler == false;
+		characterController.playProgressInterval = setInterval(updatePlayProgress, 150);
+
+		characterController.actions("quick_nod");
+
+		if (Math.round(Math.random())) {
+			thisGesture = "gesture_small";
+		} else {
+			thisGesture = "gesture_large";
+		}
+
+		characterController.actions(thisGesture);
+
+		function updatePlayProgress() {
+
+			if (characterController.canSpeak == true) {
+				currentCount = currentCount + 150;
+
+				var mouthArray = ["th", "oh", "ee", "ah"];
+				thismouth = mouthArray[Math.floor(Math.random() * mouthArray.length) + 0];
+				characterController.actions(thismouth);
+
+			} else {
+
+				clearInterval(characterController.playProgressInterval);
+
+				console.log("is set to clear");
+
+				characterController.actions("smile");
+				characterController.actions("slow_nod");
+
+				if (thisType == "welcome") {
+					characterController.actions("point_up");
+				}
+
+				//
+				//			clearTimeout(characterController.myTimeout);
+				//            characterController.myTimeout = setTimeout(function() {
+
+				if (thisType == "welcome") {
+					characterController.actions("point_backdown");
+					$(document).trigger("actionCompleted");
+				} else {
+
+					//characterController.actions("gesture_small");
+					characterController.actions("slow_nod");
+
+				}
+
+				console.log("has spoken");
+
+				$(document).trigger("textFinished");
+				$(document).trigger("textFinishedAgain");
+
+				//sceneController.getNext();
+				if (thisType == "standard" || thisType == "welcome") {
+					$('#footer_button').fadeIn(function() {
+						animationController.flashNext.restart()
+					});
+				}
+
+				//     }, 1000);
+
+			}
+		}
+
+	},
+
+	changeIntoGown : function() {
+
+		if (characterController.myCharacterName.substr(characterController.myCharacterName.length - 4) != "gown") {
+
+			characterController.myCharacterName = characterController.myCharacterName + "gown";
+
+			animationController.characterOut("actionCompleted", false);
+
+			$(document).on("actionCompleted", function() {
+
+				$(document).off("actionCompleted");
+				characterController.setCharacter(characterController.myCharacterName);
+				animationController.characterIn("gownChanged", false);
+			});
+
+		} else {
+
+			$(document).trigger("gownChanged");
+		}
+
+	}
+};
+
+$(document).ready(characterController.init);
+
+function blinker() {
+
+	if (characterController.playBoiler) {
+		characterController.actions("blink");
+
+		setTimeout(function() {
+
+			blinker();
+		}, Math.floor(Math.random() * 9000) + 800);
+	}
+}
+
+function eyebrows() {
+	if (characterController.playBoiler) {
+		characterController.actions("eybrows");
+
+		setTimeout(function() {
+
+			eyebrows();
+		}, Math.floor(Math.random() * 18000) + 6000);
+	}
+}
+
+function nod() {
+	if (characterController.playBoiler) {
+		characterController.actions("slow_nod");
+
+		setTimeout(function() {
+
+			nod();
+		}, Math.floor(Math.random() * 18000) + 6000);
+	}
+}
+

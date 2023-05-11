@@ -1,0 +1,206 @@
+<krpano version="1.17.4" title="Virtual Tour" onstart="startup();">
+
+	<include url="skin/vtourskin_test.xml" />
+
+	<!-- set skin settings: bingmaps? gyro? thumbnail controlling? tooltips? -->
+	<skin_settings bingmaps="false"
+	bingmaps_key=""
+	bingmaps_zoombuttons="false"
+	gyro="true"
+	thumbs_width="120" thumbs_height="80" thumbs_padding="10" thumbs_crop="0|40|240|160"
+	thumbs_opened="false"
+	thumbs_text="false"
+	thumbs_dragging="true"
+	thumbs_onhoverscrolling="false"
+	thumbs_scrollbuttons="false"
+	thumbs_scrollindicator="false"
+	thumbs_loop="false"
+	tooltips_thumbs="false"
+	tooltips_hotspots="false"
+	tooltips_mapspots="false"
+	controlbar_offset="-1000"
+	/>
+
+	<!-- set optional skin logo url -->
+	<layer name="skin_logo" url="" scale="0.25" opened_onclick="openurl('...',_blank);" />
+	<action name="startup">if(startscene === null, copy(startscene,scene[0].name));
+		loadscene(get(startscene), null, MERGE);</action>
+	<scene name="scene_waitingarea" title="waitingarea" onstart="" thumburl="panos/waitingarea.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view fovtype="HFOV" limitview="fullrange" fov="90" hlookat="-15" vlookat="-0.04" vlookatmax="68" maxpixelzoom="0.3" fovmax="100"/>
+		<preview url="panos/waitingarea.tiles/preview.jpg" />
+		<image>
+			<cube url="panos/waitingarea.tiles/pano_%s.jpg" />
+			<mobile>
+				<cube url="panos/waitingarea.tiles/mobile_%s.jpg" />
+			</mobile>
+		</image>
+
+		<!-- place your scene hotspots here -->
+
+	</scene>
+	<scene name="scene_view_Ultrasound" title="view1" onstart="" thumburl="panos/view1.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view fovtype="HFOV" limitview="fullrange" fov="120" hlookat="-30" vlookat="-0.04" vlookatmax="68" maxpixelzoom="0.3" fovmax="100"/>
+		<preview url="panos/view1.tiles/preview.jpg" />
+		<image>
+			<cube url="panos/view1.tiles/pano_%s.jpg" />
+			<mobile>
+				<cube url="panos/view1.tiles/mobile_%s.jpg" />
+			</mobile>
+		</image>
+
+		<!-- place your scene hotspots here -->
+		<!--<hotspot name="ultrasoundMachineSpot" visible="false" style="skin_hotspot_light" ath="75" atv="-1"  onclick="looktohotspot();js('hotspotController.ultrasound()');"/>-->
+		<hotspot name="ultrasoundMachine" visible="false" style="skin_hotspot_light" ath="0" atv="-5"  onclick="looktohotspot();js('hotspotController.ultrasoundMachine()');"/>
+		<hotspot name="ultrasoundMachineTitle" visible="false" style="hotspot_text" url="img/name_ultrasoundmachine.png" ath="1" atv="-5" rotate="0" oy="-30"  onclick="looktohotspot();js('hotspotController.ultrasoundMachine()');"/>
+		<hotspot name="ultrasoundLights" visible="false" style="skin_hotspot_light" ath="190" atv="-1"  onclick="looktohotspot();js('hotspotController.ultrasoundLights()');"/>
+		<hotspot name="ultrasoundLightsTitle" visible="false" style="hotspot_text" url="img/name_lightswitch.png" ath="190" atv="-1" rotate="0" oy="-30"  onclick="looktohotspot();js('hotspotController.ultrasoundLights()');"/>
+		<hotspot name="ultrasoundBed" visible="false" style="skin_hotspot_light" ath="10" atv="10"  onclick="looktohotspot();js('hotspotController.ultrasoundBed()');"/>
+		<hotspot name="ultrasoundBedTitle" visible="false" style="hotspot_text" url="img/name_ultrasoundbed.png" ath="10" atv="10" rotate="0" oy="-30"  onclick="looktohotspot();js('hotspotController.ultrasoundBed()');"/>
+
+	</scene>
+	<scene name="scene_view_Xray" title="view2" onstart="" thumburl="panos/view2.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view fovtype="HFOV" limitview="fullrange" fov="120" hlookat="-40" vlookat="-0.04" vlookatmax="68" maxpixelzoom="0.3" fovmax="100"/>
+		<preview url="panos/view2.tiles/preview.jpg" />
+		<image>
+			<cube url="panos/view2.tiles/pano_%s.jpg" />
+			<mobile>
+				<cube url="panos/view2.tiles/mobile_%s.jpg" />
+			</mobile>
+		</image>
+
+		<!-- place your scene hotspots here -->
+		<hotspot name="xrayChestXray" visible="false" style="skin_hotspot_light" ath="-80" atv="-1"  onclick="looktohotspot();js('hotspotController.xrayChestXray()');"/>
+		<hotspot name="xrayChestXrayTitle" visible="false" style="hotspot_text" url="img/name_xraymachine.png" ath="-80" atv="-1" rotate="-1.9" oy="-30"  onclick="looktohotspot();js('hotspotController.xrayChestXray()');"/>
+		<hotspot name="xrayChangingRoom" visible="false" style="skin_hotspot_light" ath="145" atv="-10"  onclick="looktohotspot();js('hotspotController.xrayChangingRoom()');"/>
+		<hotspot name="xrayChangingRoomTitle" visible="false" style="hotspot_text" url="img/name_changingroom.png" ath="145" atv="-10" rotate="0" oy="-30"  onclick="looktohotspot();js('hotspotController.xrayChangingRoom()');"/>
+		<hotspot name="xrayBed" visible="false" style="skin_hotspot_light" ath="0" atv="18"  onclick="looktohotspot();js('hotspotController.xrayBed()');"/>
+		<hotspot name="xrayBedTitle" visible="false" style="hotspot_text" url="img/name_xraybed.png" ath="0" atv="18" rotate="0" oy="-30"  onclick="looktohotspot();js('hotspotController.xrayBed()');"/>
+
+	</scene>
+	<scene name="scene_view_Mri" title="view8" onstart="" thumburl="panos/view8.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view fovtype="HFOV" limitview="fullrange" fov="120" hlookat="0" vlookat="-0.04" vlookatmax="68" maxpixelzoom="0.3" fovmax="100"/>
+		<preview url="panos/view8.tiles/preview.jpg" />
+		<image>
+			<cube url="panos/view8.tiles/pano_%s.jpg" />
+			<mobile>
+				<cube url="panos/view8.tiles/mobile_%s.jpg" />
+			</mobile>
+		</image>
+
+		<!-- place your scene hotspots here -->
+		<hotspot name="mriChanging" visible="false" style="skin_hotspot_light" ath="285" atv="-1"  onclick="looktohotspot();js('hotspotController.mriChanging()');"/>
+		<hotspot name="mriChangingTitle" visible="false" style="hotspot_text" url="img/name_changingroom.png" ath="285" atv="-1" rotate="0" oy="-30"  onclick="looktohotspot();js('hotspotController.mriChanging()');"/>
+		<hotspot name="mriScanroom" visible="false" style="skin_hotspot_light" ath="120" atv="-1"  onclick="looktohotspot();js('hotspotController.mriScanroom()');"/>
+		<hotspot name="mriScanroomTitle" visible="false" style="hotspot_text" url="img/name_Mri_room_hotspot.png" ath="120" atv="-10" rotate="0" oy="50"  onclick="looktohotspot();js('hotspotController.mriScanroom()');"/>
+		<hotspot name="mriMachine" visible="false" style="skin_hotspot_light" ath="97" atv="4"  onclick="looktohotspot();js('hotspotController.mriMachine()');"/>
+		<hotspot name="mriMachineTitle" visible="false" style="hotspot_text" url="img/name_mrimachine.png" ath="97" atv="-5" rotate="0" oy="50"  onclick="looktohotspot();js('hotspotController.mriMachine()');"/>
+
+	</scene>
+	<scene name="scene_view_Fluoroscopy" title="view9" onstart="" thumburl="panos/view9.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view fovtype="HFOV" limitview="fullrange" fov="120" hlookat="-40" vlookat="-0.04" vlookatmax="68" maxpixelzoom="0.3" fovmax="100"/>
+		<preview url="panos/view9.tiles/preview.jpg" />
+		<image>
+			<cube url="panos/view9.tiles/pano_%s.jpg" />
+			<mobile>
+				<cube url="panos/view9.tiles/mobile_%s.jpg" />
+			</mobile>
+		</image>
+
+		<hotspot name="fluoroscopyChanging" visible="false" style="skin_hotspot_light" ath="-60" atv="-1"  onclick="looktohotspot();js('hotspotController.fluoroscopyChanging()');"/>
+		<hotspot name="fluoroscopyChangingTitle" visible="false" style="hotspot_text" url="img/name_changingroom.png" ath="-60" atv="-1" rotate="0" oy="-30"  onclick="looktohotspot();js('hotspotController.fluoroscopyChanging()');"/>
+		<hotspot name="fluoroscopyMachine" visible="false" style="skin_hotspot_light" ath="0" atv="25"  onclick="looktohotspot();js('hotspotController.fluoroscopyMachine()');"/>
+		<hotspot name="fluoroscopyMachineTitle" visible="false" style="hotspot_text" url="img/name_xraymachine.png" ath="0" atv="25" rotate="0" oy="-30"  onclick="looktohotspot();js('hotspotController.fluoroscopyMachine()');"/>
+		<hotspot name="fluoroscopyDrink" visible="false" style="skin_hotspot_light" ath="110" atv="4"  onclick="looktohotspot();js('hotspotController.fluoroscopyDrink()');"/>
+		<hotspot name="fluoroscopyDrinkTitle" visible="false" style="hotspot_text" url="img/name_specialdrink.png" ath="110" atv="4" rotate="0" oy="-30"  onclick="looktohotspot();js('hotspotController.fluoroscopyDrink()');"/>
+	</scene>
+
+
+
+	<scene name="scene_view_Nuclear" title="view6" onstart="" thumburl="panos/view11.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view fovtype="HFOV" limitview="fullrange" fov="120" hlookat="210" vlookat="-0.04" vlookatmax="68" maxpixelzoom="0.3" fovmax="100"/>
+		<preview url="panos/view6.tiles/preview.jpg" />
+		<image>
+			<cube url="panos/view6.tiles/pano_%s.jpg" />
+			<mobile>
+				<cube url="panos/view6.tiles/mobile_%s.jpg" />
+			</mobile>
+		</image>
+
+	<hotspot name="NuclearWaiting" visible="false" style="skin_hotspot_light" ath="10" atv="-5"  onclick="looktohotspot();js('hotspotController.nuclearWaitingStep1()');"/>
+		<hotspot name="NuclearWaitingTitle" visible="false" style="hotspot_text" url="img/name_waiting_room.png" ath="10" atv="-5" rotate="0" oy="-30"  onclick="looktohotspot();js('hotspotController.nuclearWaitingStep1()');"/>
+
+
+	<hotspot name="NuclearInjecting" visible="false" style="skin_hotspot_light" ath="240" atv="-5"  onclick="looktohotspot();js('hotspotController.nuclearInjectLoad()');"/>
+		<hotspot name="NuclearInjectingTitle" visible="false" style="hotspot_text" url="img/name_injecting_room.png" ath="240" atv="-5" rotate="0" oy="-30"  onclick="looktohotspot();js('hotspotController.nuclearInjectLoad()');"/>
+
+
+	</scene>
+
+
+
+
+
+
+	<scene name="scene_view_CT" title="view10" onstart="" thumburl="panos/view10.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view fovtype="HFOV" limitview="fullrange" fov="120" hlookat="-0.5" vlookat="-0.04" vlookatmax="68" maxpixelzoom="0.3" fovmax="100"/>
+		<preview url="panos/view10.tiles/preview.jpg" />
+		<image>
+			<cube url="panos/view10.tiles/pano_%s.jpg" />
+			<mobile>
+				<cube url="panos/view10.tiles/mobile_%s.jpg" />
+			</mobile>
+		</image>
+
+		<hotspot name="CTChanging" visible="false" style="skin_hotspot_light" ath="70" atv="-5"  onclick="looktohotspot();js('hotspotController.ctChanging()');"/>
+		<hotspot name="CTChangingTitle" visible="false" style="hotspot_text" url="img/name_changingroom.png" ath="70" atv="-5" rotate="0" oy="-30"  onclick="looktohotspot();js('hotspotController.ctChanging()');"/>
+		<hotspot name="CTTable" visible="false" style="skin_hotspot_light" ath="-30" atv="17"  onclick="looktohotspot();js('hotspotController.ctTable()');"/>
+		<hotspot name="CTTableTitle" visible="false" style="hotspot_text" url="img/name_ct_scanner_table.png" ath="-30" atv="17" rotate="0" oy="-30"  onclick="looktohotspot();js('hotspotController.ctTable()');"/>
+		<hotspot name="CTDoughnut" visible="false" style="skin_hotspot_light" ath="0" atv="4"  onclick="looktohotspot();js('hotspotController.ctDoughnut()');"/>
+		<hotspot name="CTDoughnutTitle" visible="false" style="hotspot_text" url="img/name_doughnut.png" ath="0" atv="4" rotate="0" oy="-30"  onclick="looktohotspot();js('hotspotController.ctDoughnut()');"/>
+	</scene>
+
+
+
+
+
+
+
+	<scene name="scene_view_Nuclear_Injecting" title="view11" onstart="js('hotspotController.nuclearInjectStep1()');" thumburl="panos/view11.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view fovtype="HFOV" limitview="fullrange" fov="120" hlookat="-0.5" vlookat="-0.04" vlookatmax="68" maxpixelzoom="0.3" fovmax="100"/>
+		<preview url="panos/view11.tiles/preview.jpg" />
+		<image>
+			<cube url="panos/view11.tiles/pano_%s.jpg" />
+			<mobile>
+				<cube url="panos/view11.tiles/mobile_%s.jpg" />
+			</mobile>
+		</image>
+		<hotspot name="NuclearScanning" visible="false" style="skin_hotspot_light" ath="122" atv="-5"  onclick="looktohotspot();js('hotspotController.nuclearScanningLoad()');"/>
+		<hotspot name="NuclearScanningTitle" visible="false" style="hotspot_text" url="img/name_scnanningroom.png" ath="122" atv="-5" rotate="0" oy="-30"  onclick="looktohotspot();js('hotspotController.nuclearScanningLoad()');"/>
+	</scene>
+
+
+
+	<scene name="scene_view_Nuclear_Scanning" title="view12" onstart="js('hotspotController.nuclearScanningStep1()');" thumburl="panos/view12.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view fovtype="HFOV" limitview="fullrange" fov="120" hlookat="-0.5" vlookat="-0.04" vlookatmax="68" maxpixelzoom="0.3" fovmax="100"/>
+		<preview url="panos/view12.tiles/preview.jpg" />
+		<image>
+			<cube url="panos/view12.tiles/pano_%s.jpg" />
+			<mobile>
+				<cube url="panos/view12.tiles/mobile_%s.jpg" />
+			</mobile>
+		</image>
+	</scene>
+
+
+
+
+</krpano>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Radiology for Kids</title>
+    <meta name="viewport"
+          content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <style>
+        @media only screen and (min-device-width: 800px) {
+            html {
+                overflow: hidden;
+            }
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            color: #FFFFFF;
+            background-color: #000000;
+        }
+
+        a {
+            color: #AAAAAA;
+            text-decoration: underline;
+        }
+
+        a:hover {
+            color: #FFFFFF;
+            text-decoration: underline;
+        }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/TweenMax.min.js"></script>
+    <script src="js/modernizr.custom.75173.js"></script>
+    <script src="js/PxLoader.js"></script>
+    <script src="js/PxLoaderImage.js"></script>
+    <script src="js/PxLoaderSound.js"></script>
+    <script src="js/PxLoaderVideo.js"></script>
+    <script src="js/soundLoader.js"></script>
+    <script src="js/soundmanager2-jsmin.js"></script>
+    <script src="js/utilities.js"></script>
+    <script src="js/soundLoader.js"></script>
+    <script src="js/animationController.js"></script>
+    <script src="js/introController.js"></script>
+    <script src="js/videoController.js"></script>
+    <script src="js/kerryController.js"></script>
+    <script src="js/preloadController.js"></script>
+    <script src="js/panoController.js"></script>
+    <script src="js/gameController.js"></script>
+    <script src="js/hotspotController.js"></script>
+    <script src="js/sceneController.js"></script>
+
+<!--    <script src="js/libraries/easing.js"></script>-->
+
+    <script src="js/libraries/easeljs-0.7.1.min.js"></script>
+    <script src="js/libraries/tweenjs-0.5.1.min.js"></script>
+    <script src="js/libraries/movieclip-0.7.1.min.js"></script>
+    <script src="js/libraries/preloadjs-0.4.1.min.js"></script>
+    <!--<script src="js/girlHTML5bitmap.js"></script>-->
+    <script src="js/radiology_characters.js"></script>
+
+    <script src="js/characterController.js"></script>
+    <script src="js/mumController.js"></script>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="icon57.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="icon72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="icon114.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="icon144.png"/>
+
+</head>
+<body>
+
+<script src="tour.js"></script>
+<div id="holder">
+    <div id="pano" style="width:100%; height:100%;">
+        <noscript>
+            <table style="width:100%;height:100%;">
+                <tr style="valign:middle;">
+                    <td>
+                        <div style="text-align:center;">
+                            ERROR:
+                            <br/>
+                            <br/>
+                            Javascript not activated
+                            <br/>
+                            <br/>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </noscript>
+        <script>
+
+
+            if( navigator.userAgent.toLowerCase().indexOf('firefox') > -1 ){
+             html5Type = "always";
+            }
+            else {
+                html5Type = "fallback";
+
+            }
+
+
+            var viewer1 = createPanoViewer({
+                swf: "tour.swf",
+                xml: "tour.xml",
+                target: "pano",
+                id: "viewer1",
+                html5: html5Type
+            });
+            viewer1.embed();
+
+        </script>
+    </div>
+
+    <div id="testCharacter"></div>
+
+    <!--
+    <div id="popupBox"></div>
+    -->
+    <div id="loading"></div>
+    <div id="overlay"></div>
+
+    <div id="lightsOff"></div>
+
+    <div id="roomTitle" class="Titlebar roomitem">
+        <div id="roomTitleText" class="Titletext"></div>
+    </div>
+
+    <div id="footer">
+
+        <div id="footer_text">
+            <div class="inner">
+                <p id="ftext"></p>
+            </div>
+        </div>
+        <div id="footer_button" class="flashbutton"></div>
+        <div id="footer_home_button"></div>
+
+    </div>
+
+    <div id="mumbox">
+        <canvas id="mumcanvas" width="950" height="2000"></canvas>
+    </div>
+
+    <div id="characterbox">
+        <canvas id="canvas" width="950" height="2000"></canvas>
+    </div>
+
+    <div id="linkBox" class="roomitem">
+        <!--<div id="pictureLight"></div>-->
+        <!--<div id="linkTitle"></div>-->
+        <div id="link">
+
+            <a target="_blank"
+               href="http://en.wikipedia.org/wiki/Radiography">http://en.wikipedia.org/wiki/Radiography</a>
+
+        </div>
+
+        <div id="linkNext" class="flashbutton"></div>
+        <!--<div id="pictureClose" class="boxCloser">-->
+    </div>
+</div>
+
+<div id="pictureBox" class="roomitem">
+    <!--<div id="pictureLight"></div>-->
+    <div id="pictureTitle"></div>
+    <div id="picture"></div>
+    <div id="pictureNext" class="flashbutton"></div>
+    <!--<div id="pictureClose" class="boxCloser">-->
+</div>
+</div>
+
+<div id="soundwaveBox" class="roomitem">
+    <div id="soundwaveBoxTitle"></div>
+    <div id="soundwavePicture"></div>
+</div>
+
+<div id="audioBox" class="roomitem">
+    <div id="audioTitle"></div>
+    <!--<div id="audioText"><h1>Click this button to listen!</h1></div>-->
+    <div id="audioButton"></div>
+    <div id="audioClose"></div>
+</div>
+
+<div id="videoBox" class="roomitem">
+    <div id="videoTitle"></div>
+
+    <video id="videoHolder" controls>
+
+        <source src="video/fluoroscopy.mp4" id="videoMP4" type="video/mp4">
+        <source src="video/fluoroscopy.webm" id="videoWEBM" type="video/webm">
+        Your browser does not support HTML5 video.
+    </video>
+
+    <div id="videoNext" class="flashbutton"></div>
+    <div id="videoButton"></div>
+    <div id="videoClose"></div>
+</div>
+
+<div id="kerrybox">
+    <video id="kerryvideoHolder" poster="img/kerryposter.png" webkit-playsinline>
+        <source id="kerryWEBM" src="" type="video/webm"></source>
+        <source id="kerryMP4" src="" type="video/mp4"></source>
+        <!--<source src="mov_bbb.ogg" type="video/ogg">-->
+        Your browser does not support HTML5 video.
+    </video>
+    <div id="kerryText"></div>
+    <div id="kerryPoster"></div>
+    <div id="kerryControl" class="kerryPlay"></div>
+</div>
+
+</div>
+
+<div id="roomTitlebar" class="">
+    <div id="roomBadgeText"></div>
+</div>
+
+<div id="badge">
+    <div id="badgeflash"></div>
+    <div id="badgeitem"></div>
+    <div id="badgetitle"></div>
+</div>
+
+
+<div id="splashBlock">
+    <div id="splashTitlebar">
+        <div id="splashTitleText"></div>
+    </div>
+    <div id="welcomeblock"></div>
+    <div id="splashInstructionBar">
+        <div id="splashInstructionText"></div>
+    </div>
+    <div id="splashCopyright"></div>
+
+</div>
+
+
+<div id="siemensblock"></div>
+
+<div id="siemensappblock"></div>
+
+
+<div id="characterBlock">
+    <div id="characterTitlebar">
+        <div id="characterTitleText"></div>
+    </div>
+    <div id="characterHolder">
+        <div id="chooseTeenGirl" data-charactername="teengirl" class="choseCharacter"></div>
+        <div id="chooseGirl" data-charactername="girl" class="choseCharacter"></div>
+        <div id="chooseBoy" data-charactername="boy" class="choseCharacter"></div>
+        <div id="chooseTeenBoy" data-charactername="teenboy" class="choseCharacter"></div>
+    </div>
+</div>
+
+<div id="sceneChoiceBlock">
+    <div id="sceneChoiceTitlebar">
+        <div id="sceneChoiceTitleText"></div>
+    </div>
+    <div id="sceneChoiceHolder">
+
+
+        <div class="sceneChoice" data-department="CT">
+            <div id="chooseCT"></div>
+        </div>
+
+
+        <div class="sceneChoice" data-department="Fluoroscopy">
+            <div id="chooseFluoroscopy"></div>
+        </div>
+        <div class="sceneChoice" data-department="MRI">
+            <div id="chooseMRI"></div>
+        </div>
+
+        <div class="sceneChoice" data-department="Nuclear">
+            <div id="chooseNuclear"></div>
+        </div>
+
+        <div class="sceneChoice" data-department="Ultrasound">
+            <div id="chooseUltrasound"></div>
+        </div>
+        <div class="sceneChoice" data-department="X-Ray">
+            <div id="chooseXRay"></div>
+        </div>
+
+
+    </div>
+</div>
+
+<div id="menuChoiceBlock">
+    <div id="menuChoiceTitlebar">
+        <div id="menuChoiceTitleText"></div>
+    </div>
+    <div id="menuChoiceHolder">
+
+
+        <div class="menuChoice" id="parentCT" data-department="CT">
+            <div id="chooseCT"></div>
+        </div>
+
+
+        <div class="menuChoice" id="parentFluoroscopy" data-department="Fluoroscopy">
+            <div id="chooseFluoroscopy"></div>
+        </div>
+        <div class="menuChoice" id="parentMRI" data-department="MRI">
+            <div id="chooseMRI"></div>
+        </div>
+
+        <div class="menuChoice" id="parentNuclear" data-department="Nuclear">
+            <div id="chooseNuclear"></div>
+        </div>
+
+
+        <div class="menuChoice" id="parentUltrasound" data-department="Ultrasound">
+            <div id="chooseUltrasound"></div>
+        </div>
+        <div class="menuChoice" id="parentXRay" data-department="X-Ray">
+            <div id="chooseXRay"></div>
+        </div>
+
+        <div class="menuChoice" data-department="Home">
+            <div id="chooseHome">
+                <a href="index.html"></a>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>
+
+<div id="intro_footer_button" class="flashbutton"></div>
+
+<!--
+<div id="navNumbers" class="roomitem">
+<img id="nav1" src="img/numbers_1.png">
+<img id="nav2" src="img/numbers_2.png">
+<img id="nav3" src="img/numbers_3.png">
+<img id="nav4" src="img/numbers_4.png">
+<img id="nav5" src="img/numbers_5.png">
+</div>
+-->
+
+<div id="hintbox">
+    <div id="hintleft"></div>
+    <div id="hinttext">
+        Move the picture around with your mouse (or finger!)
+    </div>
+    <div id="hintright"></div>
+</div>
+
+</body>
+</html>
